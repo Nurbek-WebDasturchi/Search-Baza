@@ -1,131 +1,119 @@
 <!doctype html>
-
 <html lang="uz">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DEMO — Kuzatuv xabari (dark mode)</title>
+  <title>DEMO — Muvaffaqiyat (success mode)</title>
   <style>
-    :root{--bg:#0b0f12;--panel:#0f1619;--muted:#94a3b8;--accent:#ff3b30;--glass: rgba(255,255,255,0.03)}
+    :root{
+      --bg:#0b0f12;
+      --panel:#0f1619;
+      --muted:#94a3b8;
+      --accent:#4cd964; /* yashil rang */
+      --glass: rgba(255,255,255,0.03)
+    }
     *{box-sizing:border-box;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#071018 0%, #08121a 100%);color:#e6eef6}
-    .screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}.monitor{
-  width:980px;max-width:96%;border-radius:12px;background:linear-gradient(180deg,var(--panel), #0b1215);box-shadow:0 30px 80px rgba(2,6,9,0.7);padding:28px;display:grid;grid-template-columns:1fr 1.3fr;gap:22px;border:1px solid rgba(255,255,255,0.03)
-}
+    .screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .monitor{
+      width:980px;max-width:96%;
+      border-radius:12px;
+      background:linear-gradient(180deg,var(--panel), #0b1215);
+      box-shadow:0 30px 80px rgba(2,6,9,0.7);
+      padding:28px;
+      display:grid;
+      grid-template-columns:1fr 1.3fr;
+      gap:22px;
+      border:1px solid rgba(255,255,255,0.03)
+    }
 
-.left{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:10px}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;color:#06131a;background:linear-gradient(90deg,#ffd9d7,#ffc6c3);margin-bottom:12px}
-h1{margin:0 0 8px;font-size:20px;letter-spacing:0.6px}
-.big{font-size:28px;font-weight:800;margin:8px 0 6px}
-.muted{color:var(--muted);font-size:14px}
+    .left{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:10px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600;color:#06131a;background:linear-gradient(90deg,#d7ffda,#baffc0);margin-bottom:12px}
+    h1{margin:0 0 8px;font-size:20px;letter-spacing:0.6px;color:#4cd964}
+    .big{font-size:24px;font-weight:700;margin:8px 0 6px}
+    .muted{color:var(--muted);font-size:14px}
 
-.status {display:flex;align-items:center;gap:12px;margin-top:12px}
-.dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(255,59,48,0.35);animation:pulse 1.6s infinite}
-@keyframes pulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:0.6}100%{transform:scale(1);opacity:1}}
+    .status {display:flex;align-items:center;gap:12px;margin-top:12px}
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 12px rgba(76,217,100,0.35);
+      animation:pulse 1.6s infinite
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:1}
+      50%{transform:scale(1.35);opacity:0.6}
+      100%{transform:scale(1);opacity:1}
+    }
 
-.right{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:10px;display:flex;flex-direction:column;gap:14px}
-.panel-row{display:flex;justify-content:space-between;align-items:center}
-.card{background:var(--glass);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+    .right{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:10px;display:flex;flex-direction:column;gap:14px}
+    .panel-row{display:flex;justify-content:space-between;align-items:center}
+    .card{background:var(--glass);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
 
-.meta{display:flex;flex-direction:column;gap:6px}
-.device{font-weight:700}
+    .meta{display:flex;flex-direction:column;gap:6px}
+    .device{font-weight:700}
 
-.controls{display:flex;gap:10px;margin-top:10px}
-.btn{padding:10px 14px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;font-weight:600;cursor:pointer}
-.btn.destructive{background:linear-gradient(90deg,#2b0b0b,#3b0f0f);border-color:rgba(255,59,48,0.28)}
+    .controls{display:flex;gap:10px;margin-top:10px}
+    .btn{padding:10px 14px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;font-weight:600;cursor:pointer}
+    .btn.success{background:linear-gradient(90deg,#0b2b0b,#0f3b0f);border-color:rgba(76,217,100,0.28);color:#aaffaa}
 
-.footer-note{font-size:12px;color:var(--muted);margin-top:12px}
+    .footer-note{font-size:12px;color:var(--muted);margin-top:12px}
 
-/* DEMO watermark */
-.watermark{position:absolute;left:28px;top:18px;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,0.03);font-size:12px;color:#ffd9d7;font-weight:700}
+    .watermark{position:absolute;left:28px;top:18px;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,0.03);font-size:12px;color:#d7ffda;font-weight:700}
 
-/* small responsive */
-@media (max-width:720px){.monitor{grid-template-columns:1fr;gap:14px;padding:18px}}
-
+    @media (max-width:720px){
+      .monitor{grid-template-columns:1fr;gap:14px;padding:18px}
+    }
   </style>
 </head>
 <body>
   <div class="screen">
-    <div class="monitor" role="region" aria-label="Kuzatuv demo ekrani">
-      <div class="watermark">DASTUR — XAVFSIZLIK MAQSADIDA</div><div class="left">
-    <span class="badge">Search Data - eng maxfii!
-  </span>
-    <h1>SIZNING TELEFONINGIZ KUZATILMOQDA</h1>
-    <div class="big">Saodat · +998 93 524 07 83</div>
-    <div class="muted">Ilova: "Kuzatuv Agent" · Sozlama: on</div>
+    <div class="monitor" role="region" aria-label="Muvaffaqiyat demo ekrani">
+      <div class="watermark">DASTUR — XAVFSIZLIK MAQSADIDA</div>
+      <div class="left">
+        <span class="badge">Ma'lumotlar o‘chirildi</span>
+        <h1>Tabriklaymiz!</h1>
+        <div class="big">Tizimda Saodat Rasulovnaga tegishli ma'lumotlar agent tomonidan o‘chirildi.</div>
+        <div class="muted">Jarayon muvaffaqiyatli yakunlandi</div>
 
-    <div class="status">
-      <div class="dot" aria-hidden="true"></div>
-      <div class="meta">
-        <div class="device">Qurilma: Android • Model: Xitoy</div>
-        <div class="muted">Joylashuv: Karakalpakstan • Qo'ng'iroqlar & xabarlar kuzatilmoqda</div>
+        <div class="status">
+          <div class="dot" aria-hidden="true"></div>
+          <div class="meta">
+            <div class="device">Qurilma: Android • Model: Xitoy</div>
+            <div class="muted">Joylashuv: Karakalpakstan • Barcha kuzatuvlar bekor qilindi</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="btn success" id="okBtn">Yakunlandi</button>
+        </div>
+
+        <div class="footer-note">Eslatma: Bu sahifa <strong>faqat demo</strong> maqsadida yaratilgan. Haqiqiy tizim bilan bog‘liq emas.</div>
+      </div>
+
+      <div class="right">
+        <div class="panel-row">
+          <div>
+            <div class="muted">PROFIL</div>
+            <div style="font-weight:800;font-size:18px">SAODAT RASULOVNA</div>
+            <div class="muted">Joined: 2024 • Followers: noaniq</div>
+          </div>
+          <div class="muted" style="text-align:right">Last seen: 2m ago</div>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:700;color:#4cd964">Holat</div>
+          <div class="muted" style="margin-top:6px">Barcha ma'lumotlar tizimdan o‘chirildi va monitoring yakunlandi.</div>
+        </div>
+
       </div>
     </div>
-
-    <div class="controls">
-      <button class="btn" id="detailsBtn">Batafsil</button>
-      <button class="btn destructive" id="stopBtn">Monitoringni to'xtatishni so'ramang</button>
-    </div>
-
-    <div class="footer-note">Eslatma: Bu sahifa <strong>faqat demo</strong> maqsadida yaratilgan. Real monitoring vositasi emas.</div>
   </div>
 
-  <div class="right">
-    <div class="panel-row">
-      <div>
-        <div class="muted">PROFIL</div>
-        <div style="font-weight:800;font-size:18px">SAODAT RASULOVNA</div>
-        <div class="muted">Joined: 2024 • Followers: noaniq</div>
-      </div>
-      <div class="muted" style="text-align:right">Last seen: 2m ago</div>
-    </div>
-
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div style="font-weight:700">So'nggi post</div>
-          <div class="muted" style="margin-top:6px">“Saodat dramma ko'radi va Telegramda kanali bor.
-            ”</div>
-        </div>
-        <div class="muted">12:41</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div style="font-weight:700">Joylashuv yangilanishi</div>
-          <div class="muted" style="margin-top:6px">Karakalpakstan, Amudaryo, Bdyom village</div>
-        </div>
-        <div class="muted">1h</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div>
-          <div style="font-weight:700">Foydalanuvchi faolligi</div>
-          <div class="muted" style="margin-top:6px">Xabarlar, postlar va izohlarga e'tibor</div>
-        </div>
-        <div class="muted">3h</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  </div>  <script>
-    // Strictly UI-only demo. No real tracking.
-    document.getElementById('detailsBtn').addEventListener('click', function(){
-      alert('Bu faqat demo. Hech qanday haqiqiy ma\'lumot olinmaydi.');
+  <script>
+    document.getElementById('okBtn').addEventListener('click', function(){
+      alert('Jarayon yakunlandi. Barcha ma\'lumotlar o‘chirildi.');
     });
-
-    document.getElementById('stopBtn').addEventListener('click', function(){
-      // playful interaction for demo
-      const el = document.querySelector('.dot');
-      el.style.background = '#7c7c7c';
-      el.style.boxShadow = 'none';
-      alert('Demo: monitoring belgisi vaqtincha o‘chirildi (faqat vizual).');
-    });
-  </script></body>
+  </script>
+</body>
 </html>
